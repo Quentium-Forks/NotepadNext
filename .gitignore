@@ -48,7 +48,13 @@ CMakeLists.txt.user*
 *.pyc
 
 /build
-/build*
+/release
+rpm/BUILD/
+rpm/BUILDROOT/
+rpm/*RPMS/
+rpm/SOURCES/
+debug*.list
+elfbins.list
 /icon/*.png
 /icon/ImageMagick
 
