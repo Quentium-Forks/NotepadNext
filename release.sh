@@ -15,7 +15,7 @@ strip -s build/src/NotepadNext
 
 # assets
 mkdir -p release/$DIR
-cp -r src thirdparty .cpm-cache i18n cmake CMakeLists.txt deploy desktop icon release/$DIR
+cp -r src thirdparty .cpm-cache i18n cmake CMakeLists.txt debian deploy icon release/$DIR
 
 # translations
 export QT_SELECT=qt6
