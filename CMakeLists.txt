@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 
 project(NotepadNext
-    VERSION 0.13
+    VERSION 0.13.0
     DESCRIPTION "Cross-platform text editor"
     LANGUAGES CXX
 )
@@ -37,8 +37,12 @@ find_package(Qt6
             Core5Compat
 )
 
+set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-qt_standard_project_setup()
+set(CMAKE_AUTOUIC ON)
+if(${Qt6_VERSION} VERSION_GREATER_EQUAL "6.3")
+    qt_standard_project_setup()
+endif()
 
 set(CPM_SOURCE_CACHE "${CMAKE_SOURCE_DIR}/.cpm-cache" CACHE PATH "CPM source cache directory")
 

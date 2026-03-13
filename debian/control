@@ -1,0 +1,28 @@
+Source: notepadnext
+Section: utils
+Priority: optional
+Maintainer: Quentin Lienhardt <pro@quentium.fr>
+Build-Depends:
+ cmake,
+ debhelper (>= 13),
+ git,
+ qt6-base-dev,
+ qt6-tools-dev,
+ qt6-tools-dev-tools,
+ qt6-base-private-dev,
+ qt6-l10n-tools,
+ libqt6core5compat6-dev,
+ qt6-wayland-dev,
+ libgl1-mesa-dev,
+ libxkbcommon-dev,
+ libvulkan-dev,
+Standards-Version: 4.7.3
+Rules-Requires-Root: no
+Vcs-Browser: https://github.com/QuentiumYT/NotepadNext
+Vcs-Git: https://github.com/QuentiumYT/NotepadNext.git
+Homepage: https://github.com/QuentiumYT/NotepadNext
+
+Package: notepadnext
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A cross-platform, reimplementation of Notepad++

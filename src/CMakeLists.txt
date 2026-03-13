@@ -170,7 +170,7 @@ qt_add_executable(NotepadNext
 	docks/SearchResultsDock.cpp
 	docks/SearchResultsDock.h
 	docks/SearchResultsDock.ui
-    widgets/EditorInfoStatusBar.cpp
+	widgets/EditorInfoStatusBar.cpp
 	widgets/EditorInfoStatusBar.h
 	widgets/FadingIndicator.cpp
 	widgets/FadingIndicator.h
@@ -186,15 +186,19 @@ set_target_properties(NotepadNext PROPERTIES
 )
 
 file(GLOB TS_FILES
-	${CMAKE_SOURCE_DIR}/i18n/*.ts
+    ${CMAKE_SOURCE_DIR}/i18n/*.ts
 )
 
 find_package(Qt6 REQUIRED COMPONENTS LinguistTools)
 qt_add_translations(NotepadNext
     TS_FILES ${TS_FILES}
-    RESOURCE_PREFIX "/i18n"
+    QM_FILES_OUTPUT_VARIABLE QM_FILES
 )
 
+install(
+    FILES ${QM_FILES}
+    DESTINATION share/NotepadNext/translations
+)
 
 target_include_directories(NotepadNext
     PRIVATE
@@ -206,17 +210,17 @@ target_include_directories(NotepadNext
 )
 
 if(WIN32)
-	configure_file(
-		"${CMAKE_SOURCE_DIR}/deploy/windows/version.rc.in"
-		"${CMAKE_BINARY_DIR}/version.rc"
-		@ONLY
-	)
-	target_sources(NotepadNext PRIVATE "${CMAKE_BINARY_DIR}/version.rc")
-	configure_file(
-		"${CMAKE_SOURCE_DIR}/icon/NotepadNext.ico"
-		"${CMAKE_BINARY_DIR}/NotepadNext.ico"
-		COPYONLY
-	)
+    configure_file(
+        "${CMAKE_SOURCE_DIR}/deploy/windows/version.rc.in"
+        "${CMAKE_BINARY_DIR}/version.rc"
+        @ONLY
+    )
+    target_sources(NotepadNext PRIVATE "${CMAKE_BINARY_DIR}/version.rc")
+    configure_file(
+        "${CMAKE_SOURCE_DIR}/icon/NotepadNext.ico"
+        "${CMAKE_BINARY_DIR}/NotepadNext.ico"
+        COPYONLY
+    )
 endif()
 
 target_link_libraries(NotepadNext
