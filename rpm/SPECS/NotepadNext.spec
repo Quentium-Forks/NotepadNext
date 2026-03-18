@@ -1,5 +1,5 @@
 Name:           NotepadNext
-Version:        0.13.0
+Version:        0.13.1
 Release:        1%{?dist}
 Summary:        A cross-platform, reimplementation of Notepad++
 

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 
 project(NotepadNext
-    VERSION 0.13.0
+    VERSION 0.13.1
     DESCRIPTION "Cross-platform text editor"
     LANGUAGES CXX
 )
