@@ -199,7 +199,7 @@ qt_add_translations(NotepadNext
 
 install(
     FILES ${QM_FILES}
-    DESTINATION share/NotepadNext/translations
+    DESTINATION share/NotepadNext/i18n
 )
 
 target_include_directories(NotepadNext
