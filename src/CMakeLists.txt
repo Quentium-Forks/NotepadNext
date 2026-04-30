@@ -11,7 +11,6 @@ qt_add_executable(NotepadNext
 	DefaultDirectoryManager.h
 	DockedEditor.h
 	DockedEditorTitleBar.h
-
 	EditorManager.h
 	EditorPrintPreviewRenderer.h
 	FileDialogHelpers.h
@@ -59,7 +58,6 @@ qt_add_executable(NotepadNext
 	DebugManager.cpp
 	DefaultDirectoryManager.cpp
 	DockedEditor.cpp
-
 	EditorManager.cpp
 	EditorPrintPreviewRenderer.cpp
 	FileDialogHelpers.cpp
@@ -158,9 +156,6 @@ qt_add_executable(NotepadNext
 	docks/FolderAsWorkspaceDock.cpp
 	docks/FolderAsWorkspaceDock.h
 	docks/FolderAsWorkspaceDock.ui
-
-
-
 	docks/LanguageInspectorDock.cpp
 	docks/LanguageInspectorDock.h
 	docks/LanguageInspectorDock.ui
@@ -179,8 +174,10 @@ qt_add_executable(NotepadNext
 	widgets/QuickFindWidget.ui
 	widgets/StatusLabel.cpp
 	widgets/StatusLabel.h
-	Sorter.h Sorter.cpp
-	ScintillaSorter.h ScintillaSorter.cpp
+	Sorter.h
+	Sorter.cpp
+	ScintillaSorter.h
+	ScintillaSorter.cpp
 )
 
 set_target_properties(NotepadNext PROPERTIES
@@ -194,12 +191,7 @@ file(GLOB TS_FILES
 find_package(Qt6 REQUIRED COMPONENTS LinguistTools)
 qt_add_translations(NotepadNext
     TS_FILES ${TS_FILES}
-    QM_FILES_OUTPUT_VARIABLE QM_FILES
-)
-
-install(
-    FILES ${QM_FILES}
-    DESTINATION share/NotepadNext/i18n
+    RESOURCE_PREFIX "/i18n"
 )
 
 target_include_directories(NotepadNext

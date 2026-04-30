@@ -39,7 +39,6 @@ install -Dm644 deploy/linux/com.github.dail8859.%{name}.metainfo.xml %{buildroot
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_datadir}/icons/hicolor/scalable/mimetypes/%{name}.svg
 %{_datadir}/metainfo/com.github.dail8859.%{name}.metainfo.xml
-%{_datadir}/%{name}/i18n/*.qm
 %{_datadir}/ads/license/*
 
 %changelog
