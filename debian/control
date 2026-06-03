@@ -13,14 +13,14 @@ Build-Depends:
  qt6-l10n-tools,
  libqt6core5compat6-dev,
  qt6-wayland-dev,
- libgl1-mesa-dev,
+ libgl-dev,
  libxkbcommon-dev,
  libvulkan-dev,
-Standards-Version: 4.7.3
+Standards-Version: 4.7.4
 Rules-Requires-Root: no
-Vcs-Browser: https://github.com/QuentiumYT/NotepadNext
-Vcs-Git: https://github.com/QuentiumYT/NotepadNext.git
-Homepage: https://github.com/QuentiumYT/NotepadNext
+Vcs-Browser: https://github.com/Quentium-Forks/NotepadNext
+Vcs-Git: https://github.com/Quentium-Forks/NotepadNext.git
+Homepage: https://github.com/Quentium-Forks/NotepadNext
 
 Package: notepadnext
 Architecture: any
