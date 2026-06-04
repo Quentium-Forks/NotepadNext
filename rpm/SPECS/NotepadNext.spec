@@ -19,7 +19,7 @@ Requires:       qt6-qtbase qt6-qtbase-gui
 cmake -S . -B build \
     -DCMAKE_INSTALL_PREFIX=%{_prefix} \
     -DCMAKE_BUILD_TYPE=Release \
-    -DAPP_DISTRIBUTION=QuentiumYT-builds
+    -DAPP_DISTRIBUTION=Quentium-builds
 
 cmake --build build -j $(nproc)
 

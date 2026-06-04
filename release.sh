@@ -9,7 +9,7 @@ export VERSION=$VERSION
 rm -rf build release i18n/*.qm rpm/BUILD rpm/BUILDROOT rpm/*RPMS rpm/SOURCES debug*.list elfbins.list
 
 # build
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DAPP_DISTRIBUTION=QuentiumYT-builds
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DAPP_DISTRIBUTION=Quentium-builds
 cmake --build build -j $(nproc)
 strip -s build/src/NotepadNext
 
@@ -37,7 +37,7 @@ wget -qc https://github.com/$(wget -q https://github.com/probonopd/go-appimage/r
 chmod +x appimagetool-$ARCH.AppImage
 
 # appimage
-DESTDIR=../release/$DIR cmake --build build --target install -j $(nproc) -DAPP_DISTRIBUTION=QuentiumYT-builds
+DESTDIR=../release/$DIR cmake --build build --target install -j $(nproc) -DAPP_DISTRIBUTION=Quentium-builds
 ./appimagetool-$ARCH.AppImage -s deploy release/$DIR/usr/share/applications/NotepadNext.desktop
 ./appimagetool-$ARCH.AppImage release/$DIR
 mv Notepad_Next-$VERSION-$ARCH.AppImage release/NotepadNext-$VERSION-$ARCH.AppImage
