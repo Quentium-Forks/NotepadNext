@@ -86,7 +86,7 @@ jobs:
           cat ${{ github.workspace }}/debian/changelog
 
       - name: Publish PPA package
-        uses: Quentium-Forks/publish-ppa-package@main
+        uses: yuezk/publish-ppa-package@main
         if: github.event_name != 'workflow_dispatch' && matrix.codename == 'jammy'
         with:
           tarball: ${{ github.workspace }}/release/notepadnext-*.tar.gz
