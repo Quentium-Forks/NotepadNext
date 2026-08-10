@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=0.14.2
+VERSION=0.14.3
 DIR=notepadnext-$VERSION
 ARCH=$(uname -m)
 ARCH_DPKG=$(dpkg --print-architecture)
