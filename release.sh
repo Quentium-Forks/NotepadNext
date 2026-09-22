@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=0.15.0
+VERSION=0.15.1
 DIR=notepadnext-$VERSION
 ARCH=$(uname -m)
 ARCH_DPKG=$(dpkg --print-architecture)
@@ -26,6 +26,9 @@ lrelease i18n/*.ts
 mkdir -p release/$DIR/notepadnext/i18n
 cp i18n/*.qm release/$DIR/notepadnext/i18n
 
+# Use the Qt 6 qmake during CMake configuration and installation.
+export QMAKE="$(command -v qmake6)"
+
 # Change architecture
 sed -i "s/^Architecture:\s\+.*$/Architecture: $ARCH_DPKG/g" release/$DIR/debian/control
 
@@ -37,10 +40,6 @@ wget -qc https://github.com/$(wget -q https://github.com/probonopd/go-appimage/r
 chmod +x appimagetool-$ARCH.AppImage
 
 # appimage
-export QMAKE=$(which qmake6)
-echo "Using QMAKE=$QMAKE"
-$QMAKE -query QT_VERSION
-$QMAKE --version
 DESTDIR=../release/$DIR cmake --build build --target install -j $(nproc)
 ./appimagetool-$ARCH.AppImage -s deploy release/$DIR/usr/share/applications/NotepadNext.desktop
 ./appimagetool-$ARCH.AppImage release/$DIR
