@@ -28,9 +28,9 @@
 
 namespace
 {
-    constexpr QLatin1StringView IconPlusPath(":/icons/plus.svg");
-    constexpr QLatin1StringView IconListPath(":/icons/list_with_icons.svg");
-    constexpr QLatin1StringView IconCrossPath(":/icons/cross.svg");
+    const auto IconPlusPath = QStringLiteral(":/icons/plus.svg");
+    const auto IconListPath = QStringLiteral(":/icons/list_with_icons.svg");
+    const auto IconCrossPath = QStringLiteral(":/icons/cross.svg");
 }
 
 TabsQuickActionsBar::TabsQuickActionsBar(const Buttons &visibileButtons, QWidget *parent)

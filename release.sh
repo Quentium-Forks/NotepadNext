@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=0.14.3
+VERSION=0.15.0
 DIR=notepadnext-$VERSION
 ARCH=$(uname -m)
 ARCH_DPKG=$(dpkg --print-architecture)
@@ -37,7 +37,11 @@ wget -qc https://github.com/$(wget -q https://github.com/probonopd/go-appimage/r
 chmod +x appimagetool-$ARCH.AppImage
 
 # appimage
-DESTDIR=../release/$DIR cmake --build build --target install -j $(nproc) -DAPP_DISTRIBUTION=Quentium-builds
+export QMAKE=$(which qmake6)
+echo "Using QMAKE=$QMAKE"
+$QMAKE -query QT_VERSION
+$QMAKE --version
+DESTDIR=../release/$DIR cmake --build build --target install -j $(nproc)
 ./appimagetool-$ARCH.AppImage -s deploy release/$DIR/usr/share/applications/NotepadNext.desktop
 ./appimagetool-$ARCH.AppImage release/$DIR
 mv Notepad_Next-$VERSION-$ARCH.AppImage release/NotepadNext-$VERSION-$ARCH.AppImage
