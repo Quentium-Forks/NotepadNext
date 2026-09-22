@@ -23,10 +23,14 @@
 
 #include <QStatusBar>
 #include <QLineEdit>
-#include <QKeyEvent>
+#include <QShortcut>
+#include <QClipboard>
+#include <QGuiApplication>
+#include <QScreen>
 
 #include "ScintillaNext.h"
 #include "MainWindow.h"
+#include "BookMarkDecorator.h"
 
 
 static void convertToExtended(QString &str)
@@ -58,6 +62,7 @@ FindReplaceDialog::FindReplaceDialog(ISearchResultsHandler *searchResults, MainW
     tabBar = new QTabBar();
     tabBar->addTab(tr("Find"));
     tabBar->addTab(tr("Replace"));
+    tabBar->addTab(tr("Mark"));
     tabBar->setExpanding(false);
     qobject_cast<QVBoxLayout *>(layout())->insertWidget(0, tabBar);
     connect(tabBar, &QTabBar::currentChanged, this, &FindReplaceDialog::changeTab);
@@ -75,17 +80,17 @@ FindReplaceDialog::FindReplaceDialog(ISearchResultsHandler *searchResults, MainW
     connect(ui->comboReplace, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), ui->comboReplace->lineEdit(), &QLineEdit::selectAll);
 
     // Force focus on the find text box
-    connect(this, &FindReplaceDialog::windowActivated, [=]() {
+    connect(this, &FindReplaceDialog::windowActivated, [=, this]() {
         ui->comboFind->setFocus();
         ui->comboFind->lineEdit()->selectAll();
     });
 
-    connect(this, &QDialog::rejected, [=]() {
+    connect(this, &QDialog::rejected, [=, this]() {
         statusBar->clearMessage();
         savePosition();
     });
 
-    connect(ui->radioRegexSearch, &QRadioButton::toggled, this, [=](bool checked) {
+    connect(ui->radioRegexSearch, &QRadioButton::toggled, this, [=, this](bool checked) {
         ui->checkBoxBackwardsDirection->setDisabled(checked);
         ui->checkBoxMatchWholeWord->setDisabled(checked);
         ui->checkBoxRegexMatchesNewline->setEnabled(checked);
@@ -97,7 +102,7 @@ FindReplaceDialog::FindReplaceDialog(ISearchResultsHandler *searchResults, MainW
 
     connect(ui->buttonFind, &QPushButton::clicked, this, &FindReplaceDialog::find);
     connect(ui->buttonCount, &QPushButton::clicked, this, &FindReplaceDialog::count);
-    connect(ui->buttonFindAllInCurrent, &QPushButton::clicked, this, [=]() {
+    connect(ui->buttonFindAllInCurrent, &QPushButton::clicked, this, [=, this]() {
         prepareToPerformSearch();
 
         searchResultsHandler->newSearch(findString());
@@ -108,7 +113,7 @@ FindReplaceDialog::FindReplaceDialog(ISearchResultsHandler *searchResults, MainW
 
         close();
     });
-    connect(ui->buttonFindAllInDocuments, &QPushButton::clicked, this, [=]() {
+    connect(ui->buttonFindAllInDocuments, &QPushButton::clicked, this, [=, this]() {
         prepareToPerformSearch();
 
         searchResultsHandler->newSearch(findString());
@@ -121,7 +126,7 @@ FindReplaceDialog::FindReplaceDialog(ISearchResultsHandler *searchResults, MainW
     });
     connect(ui->buttonReplace, &QPushButton::clicked, this, &FindReplaceDialog::replace);
     connect(ui->buttonReplaceAll, &QPushButton::clicked, this, &FindReplaceDialog::replaceAll);
-    connect(ui->buttonReplaceAllInDocuments, &QPushButton::clicked, this, [=]() {
+    connect(ui->buttonReplaceAllInDocuments, &QPushButton::clicked, this, [=, this]() {
         prepareToPerformSearch(true);
 
         QString replaceText = replaceString();
@@ -144,6 +149,20 @@ FindReplaceDialog::FindReplaceDialog(ISearchResultsHandler *searchResults, MainW
         showMessage(tr("Replaced %Ln matches", "", count), "green");
     });
     connect(ui->buttonClose, &QPushButton::clicked, this, &FindReplaceDialog::close);
+    connect(ui->buttonMarkAll, &QPushButton::clicked, this, &FindReplaceDialog::markAll);
+    connect(ui->buttonClearAllMarks, &QPushButton::clicked, this, &FindReplaceDialog::clearAllMarks);
+    connect(ui->buttonCopyMarkedText, &QPushButton::clicked, this, &FindReplaceDialog::copyMarkedText);
+
+    const auto findPrevious = [this]() {
+        const int curTab = tabBar->currentIndex();
+        if (curTab == FIND_TAB || curTab == REPLACE_TAB) {
+            // Always default to forward if regex search is checked
+            const bool regex = ui->radioRegexSearch->isChecked();
+            performFind(regex ? SearchDirection::Forwards : SearchDirection::Backwards);
+        }
+    };
+    new QShortcut(QKeySequence(Qt::SHIFT | Qt::Key_Return), this, this, findPrevious, Qt::WidgetWithChildrenShortcut);
+    new QShortcut(QKeySequence(Qt::SHIFT | Qt::Key_Enter), this, this, findPrevious, Qt::WidgetWithChildrenShortcut);
 
     loadSettings();
 
@@ -222,29 +241,28 @@ void FindReplaceDialog::updateReplaceList(const QString &text)
 
 void FindReplaceDialog::find()
 {
+    performFind(ui->checkBoxBackwardsDirection->isChecked() ? SearchDirection::Backwards : SearchDirection::Forwards);
+}
+
+void FindReplaceDialog::performFind(SearchDirection direction)
+{
     qInfo(Q_FUNC_INFO);
 
     prepareToPerformSearch();
 
-    Sci_CharacterRange range;
-    if(!ui->checkBoxBackwardsDirection->isChecked()) {
-        range = finder->findNext();
-    }
-    else{
-         range = finder->findPrev();
-    }
+    FindResult result = direction == SearchDirection::Forwards ? finder->findNext() : finder->findPrev();
 
-    if (ScintillaNext::isRangeValid(range)) {
-        if (finder->didLatestSearchWrapAround()) {
+    if (result) {
+        if (result.wrapped) {
             showMessage(tr("The end of the document has been reached. Found 1st occurrence from the top."), "green");
         }
 
         // TODO: Handle zero length matches better
-        if (range.cpMin == range.cpMax) {
-            qWarning() << "0 length match at" << range.cpMin;
+        if (result.range.cpMin == result.range.cpMax) {
+            qWarning() << "0 length match at" << result.range.cpMin;
         }
 
-        editor->goToRange(range);
+        editor->goToRange(result.range);
     }
     else {
         showMessage(tr("No matches found."), "red");
@@ -259,7 +277,7 @@ void FindReplaceDialog::findAllInCurrentDocument()
 
     QString text = findString();
 
-    finder->setSearchText(text);
+    finder->options().text = text;
     finder->forEachMatch([&](int start, int end){
         // Only add the file entry if there was a valid search result
         if (firstMatch) {
@@ -307,16 +325,14 @@ void FindReplaceDialog::replace()
         convertToExtended(replaceText);
     }
 
-    Sci_CharacterRange range = finder->replaceSelectionIfMatch(replaceText);
-
-    if (ScintillaNext::isRangeValid(range)) {
+    if (finder->replaceSelectionIfMatch(replaceText)) {
         showMessage(tr("1 occurrence was replaced"), "blue");
     }
 
-    Sci_CharacterRange next_match = finder->findNext();
+    FindResult result = finder->findNext();
 
-    if (ScintillaNext::isRangeValid(next_match)) {
-        editor->goToRange(next_match);
+    if (result) {
+        editor->goToRange(result.range);
     }
     else {
         showMessage(tr("No more occurrences were found"), "red");
@@ -361,12 +377,18 @@ void FindReplaceDialog::setEditor(ScintillaNext *editor)
 
 void FindReplaceDialog::performNextSearch()
 {
-    editor->goToRange(finder->findNext());
+    FindResult result = finder->findNext();
+
+    if (result)
+        editor->goToRange(result.range);
 }
 
 void FindReplaceDialog::performPrevSearch()
 {
-    editor->goToRange(finder->findPrev());
+    FindResult result = finder->findPrev();
+
+    if (result)
+        editor->goToRange(result.range);
 }
 
 void FindReplaceDialog::adjustOpacity(int value)
@@ -402,10 +424,10 @@ void FindReplaceDialog::adjustOpacityWhenLosingFocus(bool checked)
     qInfo(Q_FUNC_INFO);
 
     if (checked) {
-        connect(this, &FindReplaceDialog::windowActivated, [=]() {
+        connect(this, &FindReplaceDialog::windowActivated, [=, this]() {
             this->adjustOpacity(100);
         });
-        connect(this, &FindReplaceDialog::windowDeactivated, [=]() {
+        connect(this, &FindReplaceDialog::windowDeactivated, [=, this]() {
             this->adjustOpacity(ui->horizontalSlider->value());
         });
         adjustOpacity(100);
@@ -431,44 +453,90 @@ void FindReplaceDialog::adjustOpacityAlways(bool checked)
 
 void FindReplaceDialog::changeTab(int index)
 {
-    if (index == 0) {
+    if (index == FIND_TAB) {
         ui->labelReplaceWith->setMaximumHeight(0);
         ui->comboReplace->setMaximumHeight(0);
         // The combo box isn't actually "hidden", so adjust the focus policy so it does not get tabbed to
         ui->comboReplace->setFocusPolicy(Qt::NoFocus);
 
+        ui->buttonFind->show();
+
         ui->buttonReplace->hide();
         ui->buttonReplaceAll->hide();
         ui->buttonReplaceAllInDocuments->hide();
+        ui->buttonMarkAll->hide();
+        ui->buttonClearAllMarks->hide();
+        ui->buttonCopyMarkedText->hide();
 
         ui->buttonCount->show();
         ui->buttonFindAllInCurrent->show();
         ui->buttonFindAllInDocuments->show();
+
+        ui->checkBoxBookmarkLine->hide();
+        ui->checkBoxPurgeForEachSearch->hide();
+
+        ui->checkBoxBackwardsDirection->setEnabled(!ui->radioRegexSearch->isChecked());
+        ui->checkBoxWrapAround->setEnabled(true);
     }
-    else if (index == 1) {
+    else if (index == REPLACE_TAB) {
         ui->labelReplaceWith->setMaximumHeight(QWIDGETSIZE_MAX);
         ui->comboReplace->setMaximumHeight(QWIDGETSIZE_MAX);
         ui->comboReplace->setFocusPolicy(Qt::StrongFocus); // Reset its focus policy
 
+        ui->buttonFind->show();
+
         ui->buttonReplace->show();
         ui->buttonReplaceAll->show();
         ui->buttonReplaceAllInDocuments->show();
+        ui->buttonMarkAll->hide();
+        ui->buttonClearAllMarks->hide();
+        ui->buttonCopyMarkedText->hide();
 
         ui->buttonCount->hide();
         ui->buttonFindAllInCurrent->hide();
         ui->buttonFindAllInDocuments->hide();
+
+        ui->checkBoxBookmarkLine->hide();
+        ui->checkBoxPurgeForEachSearch->hide();
+
+        ui->checkBoxBackwardsDirection->setEnabled(!ui->radioRegexSearch->isChecked());
+        ui->checkBoxWrapAround->setEnabled(true);
+    }
+    else if (index == MARK_TAB) {
+        ui->labelReplaceWith->setMaximumHeight(0);
+        ui->comboReplace->setMaximumHeight(0);
+        ui->comboReplace->setFocusPolicy(Qt::NoFocus);
+
+        ui->buttonFind->hide();
+
+        ui->buttonReplace->hide();
+        ui->buttonReplaceAll->hide();
+        ui->buttonReplaceAllInDocuments->hide();
+        ui->buttonCount->hide();
+        ui->buttonFindAllInCurrent->hide();
+        ui->buttonFindAllInDocuments->hide();
+
+        ui->buttonMarkAll->show();
+        ui->buttonClearAllMarks->show();
+        ui->buttonCopyMarkedText->show();
+
+        ui->checkBoxBookmarkLine->show();
+        ui->checkBoxPurgeForEachSearch->show();
+
+        ui->checkBoxBackwardsDirection->setEnabled(!ui->radioRegexSearch->isChecked());
+        ui->checkBoxWrapAround->setEnabled(true);
     }
 
     ui->comboFind->setFocus();
     ui->comboFind->lineEdit()->selectAll();
 }
 
-QString FindReplaceDialog::findString()
+QString FindReplaceDialog::findString() const
 {
     return ui->comboFind->currentText();
 }
 
-QString FindReplaceDialog::replaceString()
+QString FindReplaceDialog::replaceString() const
 {
     return ui->comboReplace->currentText();
 }
@@ -497,9 +565,7 @@ void FindReplaceDialog::prepareToPerformSearch(bool replace)
         //convertToExtended(replaceText);
     }
 
-    finder->setWrap(ui->checkBoxWrapAround->isChecked());
-    finder->setSearchFlags(computeSearchFlags());
-    finder->setSearchText(findText);
+    finder->options() = findOptions();
 }
 
 void FindReplaceDialog::loadSettings()
@@ -511,6 +577,18 @@ void FindReplaceDialog::loadSettings()
     settings.beginGroup("FindReplaceDialog");
 
     restoreGeometry(settings.value("geometry").toByteArray());
+
+    // Defensively clamp the restored size in case a previously persisted geometry
+    // is larger than the available screen (e.g. from an older version that let the
+    // dialog grow to fit a very long recent search string). This lets users recover
+    // automatically without having to edit or delete notepadnext.ini.
+    if (const QScreen *screen = QGuiApplication::primaryScreen()) {
+        const QSize available = screen->availableGeometry().size();
+        const QSize current = size();
+        const QSize clamped = current.boundedTo(available);
+        if (clamped != current)
+            resize(clamped);
+    }
 
     ui->comboFind->addItems(settings.value("RecentSearchList").toStringList());
     ui->comboReplace->addItems(settings.value("RecentReplaceList").toStringList());
@@ -613,18 +691,131 @@ void FindReplaceDialog::restorePosition()
     }
 }
 
-int FindReplaceDialog::computeSearchFlags()
+FindOptions FindReplaceDialog::findOptions() const
 {
-    int flags = 0;
+    FindOptions options;
+
+    options.text = findString();
 
     if (ui->checkBoxMatchWholeWord->isChecked())
-        flags |= SCFIND_WHOLEWORD;
-    if (ui->checkBoxMatchCase->isChecked())
-        flags |= SCFIND_MATCHCASE;
-    if (ui->radioRegexSearch->isChecked())
-        flags |= SCFIND_REGEXP;
+        options.flags |= Scintilla::FindOption::WholeWord;
 
-    return flags;
+    if (ui->checkBoxMatchCase->isChecked())
+        options.flags |= Scintilla::FindOption::MatchCase;
+
+    if (ui->radioRegexSearch->isChecked())
+        options.flags |= Scintilla::FindOption::RegExp;
+
+    options.wrapAround = ui->checkBoxWrapAround->isChecked();
+
+    return options;
+}
+
+int FindReplaceDialog::ensureMarkIndicator()
+{
+    int markIndicator = editor->allocateIndicator(QStringLiteral("find_mark_highlight"));
+    editor->indicSetFore(markIndicator, 0xFFCC00);
+    editor->indicSetStyle(markIndicator, INDIC_FULLBOX);
+    editor->indicSetOutlineAlpha(markIndicator, 200);
+    editor->indicSetAlpha(markIndicator, 100);
+    editor->indicSetUnder(markIndicator, true);
+
+    return markIndicator;
+}
+
+BookMarkDecorator *FindReplaceDialog::bookMarkDecorator() const
+{
+    BookMarkDecorator *decorator = editor->findChild<BookMarkDecorator *>(QString(), Qt::FindDirectChildrenOnly);
+
+    if (decorator && decorator->isEnabled())
+        return decorator;
+
+    return nullptr;
+}
+
+void FindReplaceDialog::clearAllBookmarks()
+{
+    BookMarkDecorator *decorator = bookMarkDecorator();
+    if (decorator) {
+        decorator->clearAllBookmarks();
+    }
+}
+
+void FindReplaceDialog::markAll()
+{
+    qInfo(Q_FUNC_INFO);
+
+    prepareToPerformSearch();
+    int markIndicator = ensureMarkIndicator();
+
+    editor->setIndicatorCurrent(markIndicator);
+
+    if (ui->checkBoxPurgeForEachSearch->isChecked()) {
+        editor->indicatorClearRange(0, editor->length());
+        clearAllBookmarks();
+    }
+
+    BookMarkDecorator *bookMarkDecorator = nullptr;
+    if (ui->checkBoxBookmarkLine->isChecked()) {
+        bookMarkDecorator = this->bookMarkDecorator();
+    }
+
+    int count = 0;
+    finder->forEachMatch([&](int start, int end) {
+        editor->indicatorFillRange(start, end - start);
+        count++;
+
+        if (bookMarkDecorator) {
+            const int line = editor->lineFromPosition(start);
+            if (!bookMarkDecorator->isBookmarkSet(line)) {
+                bookMarkDecorator->addBookmark(line);
+            }
+        }
+
+        return end;
+    });
+
+    showMessage(tr("Mark: %Ln match in entire file", "", count), "green");
+}
+
+void FindReplaceDialog::clearAllMarks()
+{
+    qInfo(Q_FUNC_INFO);
+
+    int markIndicator = ensureMarkIndicator();
+    editor->setIndicatorCurrent(markIndicator);
+    editor->indicatorClearRange(0, editor->length());
+    clearAllBookmarks();
+    showMessage(tr("All marks cleared"), "green");
+}
+
+void FindReplaceDialog::copyMarkedText()
+{
+    qInfo(Q_FUNC_INFO);
+
+    int markIndicator = ensureMarkIndicator();
+
+    QStringList markedTexts;
+    int pos = 0;
+    const int len = editor->length();
+
+    while (pos < len) {
+        if (editor->indicatorValueAt(markIndicator, pos)) {
+            const int end = static_cast<int>(editor->indicatorEnd(markIndicator, pos));
+            markedTexts << QString::fromUtf8(editor->get_text_range(pos, end));
+            pos = end;
+        } else {
+            pos++;
+        }
+    }
+
+    if (markedTexts.isEmpty()) {
+        showMessage(tr("No marks to copy"), "red");
+        return;
+    }
+
+    QGuiApplication::clipboard()->setText(markedTexts.join("\n"));
+    showMessage(tr("Copied %Ln marked text(s)", "", markedTexts.size()), "green");
 }
 
 void FindReplaceDialog::showMessage(const QString &message, const QString &color)

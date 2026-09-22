@@ -128,13 +128,13 @@ bool NotepadNextApplication::init()
     editorManager = new EditorManager(settings, this);
     sessionManager = new SessionManager(this);
 
-    connect(editorManager, &EditorManager::editorCreated, recentFilesListManager, [=](ScintillaNext *editor) {
+    connect(editorManager, &EditorManager::editorCreated, recentFilesListManager, [this](ScintillaNext *editor) {
         if (editor->isFile()) {
             recentFilesListManager->removeFile(editor->getFilePath());
         }
     });
 
-    connect(editorManager, &EditorManager::editorClosed, recentFilesListManager, [=](ScintillaNext *editor) {
+    connect(editorManager, &EditorManager::editorClosed, recentFilesListManager, [this](ScintillaNext *editor) {
         if (editor->isFile()) {
             recentFilesListManager->addFile(editor->getFilePath());
         }
@@ -295,6 +295,12 @@ void NotepadNextApplication::setEditorLanguage(ScintillaNext *editor, const QStr
     getLuaState()->setVariable("skip_tabwidth", skipTabWidth);
 
     getLuaState()->execute("SetLanguage(languageName)");
+}
+
+QStringList NotepadNextApplication::getLanguageKeywords(const QString &languageName) const
+{
+    getLuaState()->setVariable("languageName", languageName);
+    return getLuaState()->executeAndReturn<QStringList>("return GetLanguageKeywords(languageName)");
 }
 
 QString NotepadNextApplication::detectLanguage(ScintillaNext *editor) const

@@ -174,10 +174,13 @@ qt_add_executable(NotepadNext
 	widgets/QuickFindWidget.ui
 	widgets/StatusLabel.cpp
 	widgets/StatusLabel.h
-	Sorter.h
-	Sorter.cpp
-	ScintillaSorter.h
-	ScintillaSorter.cpp
+	Sorter.h Sorter.cpp
+	ScintillaSorter.h ScintillaSorter.cpp
+	widgets/TabsQuickActionsBar.cpp
+	widgets/TabsQuickActionsBar.h
+	ShiftMiddleClickBlocker.h ShiftMiddleClickBlocker.cpp
+	ShiftWheelToHorizontalScrollFilter.h ShiftWheelToHorizontalScrollFilter.cpp
+
 )
 
 set_target_properties(NotepadNext PROPERTIES
@@ -233,6 +236,12 @@ target_link_libraries(NotepadNext
         scintilla
         uchardet
 )
+
+if(APPLE)
+    # Workaround for Qt 6.5/6.8 on macOS with newer Xcode that removed deprecated AGL framework
+    # These linker flags prevent the linker from failing when Qt tries to reference AGL
+    target_link_options(NotepadNext PRIVATE "LINKER:-flat_namespace" "LINKER:-undefined,suppress")
+endif()
 
 target_compile_definitions(NotepadNext
     PRIVATE

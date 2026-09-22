@@ -40,8 +40,11 @@ class Macro;
 class Settings;
 class QuickFindWidget;
 class ZoomEventWatcher;
+class ShiftMiddleClickBlocker;
+class ShiftWheelToHorizontalScrollFilter;
 class Converter;
 class DefaultDirectoryManager;
+class TabsQuickActionsBar;
 
 class MainWindow : public QMainWindow
 {
@@ -86,7 +89,8 @@ public slots:
 
     bool saveCopyAsDialog();
     bool saveCopyAs(const QString &fileName);
-    void saveAll();
+    bool saveAll();
+    bool saveAllEditors(const QVector<ScintillaNext *> &editors);
 
     void exportAsFormat(Converter *converter, const QString &filter);
     void copyAsFormat(Converter *converter, const QString &mimeType);
@@ -150,6 +154,22 @@ private:
 
     QScopedPointer<SearchResultsCollector> searchResults;
 
+    template <typename Method>
+    void connectEditorAction(QAction* action, Method method) {
+        connect(action, &QAction::triggered, this, [this, method]() {
+            if (auto* editor = currentEditor()) {
+                (editor->*method)();
+            }
+        });
+    }
+    template <typename Method, typename Arg>
+    void connectEditorAction(QAction* action, Method method, Arg value) {
+        connect(action, &QAction::triggered, this, [this, method, value]() {
+            if (auto* editor = currentEditor()) {
+                (editor->*method)(value);
+            }
+        });
+    }
     void applyStyleSheet();
     void applyCustomShortcuts();
     void initUpdateCheck();
@@ -160,6 +180,9 @@ private:
     void showSaveErrorMessage(ScintillaNext *editor, QFileDevice::FileError error);
     void showEditorZoomLevelIndicator();
 
+    enum class UserSaveAction { SaveAll, DiscardAll, Cancel };
+    UserSaveAction promptForSave(const QVector<ScintillaNext *> &editors);
+
     void saveSettings() const;
     void restoreSettings();
 
@@ -167,12 +190,16 @@ private:
 
     QActionGroup *languageActionGroup;
 
+    TabsQuickActionsBar *tabsQuickActionsBar = Q_NULLPTR;
+
     //NppImporter *npp;
 
     MacroManager macroManager;
     DefaultDirectoryManager *defaultDirectoryManager;
 
     ZoomEventWatcher *zoomEventWatcher;
+    ShiftMiddleClickBlocker *shiftMiddleClickBlocker;
+    ShiftWheelToHorizontalScrollFilter *shiftWheelToHorizontalScrollFilter;
     int zoomLevel = 0;
     int contextMenuPos = 0;
     QMenu *buildMenu(QStringList actionNames);

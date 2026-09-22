@@ -3,7 +3,7 @@ include(${CMAKE_SOURCE_DIR}/cmake/CPM.cmake)
 CPMAddPackage(
     NAME ads
     GITHUB_REPOSITORY githubuser0xFFFF/Qt-Advanced-Docking-System
-    GIT_TAG 34b68d6eab1556cf851d24e033909332771f3dfe
+    GIT_TAG v5.1.1
     OPTIONS
         "BUILD_STATIC ON"
         "BUILD_EXAMPLES OFF"
@@ -12,7 +12,7 @@ CPMAddPackage(
 CPMAddPackage(
     NAME QSimpleUpdater
     GITHUB_REPOSITORY alex-spataru/QSimpleUpdater
-    GIT_TAG 8e7017f7fbdc2b4b1a26ed1eef9ebcba6a50639c
+    GIT_TAG c5c136c0f79ca6423b0914a2676ae3d0e3811c5b
     OPTIONS
         "QSIMPLE_UPDATER_BUILD_TESTS OFF"
 )
@@ -21,7 +21,7 @@ set(QAPPLICATION_CLASS QApplication CACHE STRING "Inheritance class for SingleAp
 CPMAddPackage(
     NAME SingleApplication
     GITHUB_REPOSITORY itay-grudev/SingleApplication
-    GIT_TAG 494772e98cef0aa88124f154feb575cc60b08b38
+    GIT_TAG v3.5.6
 )
 
 CPMAddPackage(

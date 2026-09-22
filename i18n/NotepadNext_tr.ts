@@ -323,7 +323,7 @@
     <message>
       <location filename="../src/dialogs/FindReplaceDialog.ui" line="20"/>
       <location filename="../src/dialogs/FindReplaceDialog.ui" line="247"/>
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="59"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="63"/>
       <source>Find</source>
       <translation>Bul</translation>
     </message>
@@ -399,47 +399,77 @@
     </message>
     <message>
       <location filename="../src/dialogs/FindReplaceDialog.ui" line="311"/>
+      <source>Mark All</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="321"/>
+      <source>Clear all marks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="331"/>
+      <source>Copy Marked Text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="341"/>
       <source>Close</source>
       <translation>Kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.ui" line="367"/>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="397"/>
       <source>&amp;Find:</source>
       <translation>&amp;Değiştir:</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.ui" line="399"/>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="432"/>
       <source>Replace:</source>
       <translation>Değiştir:</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.ui" line="445"/>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="481"/>
+      <source>&amp;Bookmark line</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="488"/>
+      <source>&amp;Purge for each search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="495"/>
       <source>Backward direction</source>
       <translation>Geriye doğru yön</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.ui" line="452"/>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="502"/>
       <source>Match &amp;whole word only</source>
       <translation>Sadece &amp;tüm kelimeyi eşleştir</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.ui" line="459"/>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="509"/>
       <source>Match &amp;case</source>
       <translation>Eşleşme &amp;durumu</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.ui" line="466"/>
+      <location filename="../src/dialogs/FindReplaceDialog.ui" line="516"/>
       <source>Wra&amp;p Around</source>
       <translation>E&amp;trafını Sat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="60"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="64"/>
       <source>Replace</source>
       <translation>Değiştir</translation>
     </message>
+    <message>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="65"/>
+      <source>Mark</source>
+      <translation type="unfinished"/>
+    </message>
     <message numerus="yes">
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="144"/>
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="341"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="149"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="357"/>
       <source>Replaced %Ln matches</source>
       <translation>
         <numerusform>%Ln eşleşme değiştirildi</numerusform>
@@ -447,32 +477,52 @@
       </translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="239"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="257"/>
       <source>The end of the document has been reached. Found 1st occurrence from the top.</source>
       <translation>Belgenin sonuna ulaşıldı. Üstten 1. eşleşme bulundu.</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="250"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="268"/>
       <source>No matches found.</source>
       <translation>Eşleşme Bulunamadı.</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="313"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="329"/>
       <source>1 occurrence was replaced</source>
       <translation>1 eşleşen değiştirildi</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="322"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="338"/>
       <source>No more occurrences were found</source>
       <translation>Başka eşleşen bulunamadı</translation>
     </message>
     <message numerus="yes">
-      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="352"/>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="368"/>
       <source>Found %Ln matches</source>
       <translation>
         <numerusform>%Ln eşleşme bulundu</numerusform>
         <numerusform>Found %Ln matches</numerusform>
       </translation>
+    </message>
+    <message numerus="yes">
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="778"/>
+      <source>Mark: %Ln match in entire file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="789"/>
+      <source>All marks cleared</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="813"/>
+      <source>No marks to copy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+      <location filename="../src/dialogs/FindReplaceDialog.cpp" line="818"/>
+      <source>Copied %Ln marked text(s)</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -481,6 +531,31 @@
       <location filename="../src/docks/FolderAsWorkspaceDock.ui" line="14"/>
       <source>Folder as Workspace</source>
       <translation>Çalışma Alanı olarak Klasör</translation>
+    </message>
+    <message>
+      <location filename="../src/docks/FolderAsWorkspaceDock.ui" line="88"/>
+      <source>...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/docks/FolderAsWorkspaceDock.ui" line="108"/>
+      <source>Size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/docks/FolderAsWorkspaceDock.ui" line="119"/>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/docks/FolderAsWorkspaceDock.ui" line="130"/>
+      <source>Date Modified</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/docks/FolderAsWorkspaceDock.ui" line="141"/>
+      <source>Hidden</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -736,7 +811,7 @@
     </message>
     <message>
       <location filename="../src/dialogs/MainWindow.ui" line="69"/>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1439"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1522"/>
       <source>Export As</source>
       <translation>... olarak Dışa Aktar</translation>
     </message>
@@ -796,1285 +871,1034 @@
       <translation>Yer İmleri</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="220"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="221"/>
       <source>Mark All Occurrences</source>
       <translation>Mark All Occurrences</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="228"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="229"/>
       <source>Clear Marks</source>
       <translation>Clear Marks</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="251"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="254"/>
       <source>&amp;View</source>
       <translation>&amp;Görüntü</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="255"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="258"/>
       <source>&amp;Zoom</source>
       <translation>&amp;Yakınlaştırma</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="264"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="267"/>
       <source>Show Symbol</source>
       <translation>Sembolu Göster</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="275"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="278"/>
       <source>Fold Level</source>
       <translation>Katlama Seviyesi</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="289"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="292"/>
       <source>Unfold Level</source>
       <translation>Unfold Level</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="315"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="321"/>
       <source>Language</source>
       <translation>Dil</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="320"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="326"/>
       <source>Settings</source>
       <translation>Ayarlar</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="326"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="332"/>
       <source>Macro</source>
       <translation>Makro</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="337"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="343"/>
       <source>Help</source>
       <translation>Yardım</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="348"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="354"/>
       <source>Encoding</source>
       <translation>Kodlama</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="364"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="370"/>
       <source>Main Tool Bar</source>
       <translation>Ana Araç Çubuğu</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="424"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="430"/>
       <source>&amp;New</source>
       <translation>&amp;Yeni</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="427"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="433"/>
       <source>Create a new file</source>
       <translation>Yeni bir dosya oluştur</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="430"/>
-      <source>Ctrl+N</source>
-      <translation>Ctrl+N</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="440"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="446"/>
       <source>&amp;Open...</source>
       <translation>&amp;Aç...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="443"/>
-      <source>Ctrl+O</source>
-      <translation>Ctrl+O</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="456"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="462"/>
       <source>&amp;Save</source>
       <translation>&amp;Kaydet</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="459"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="465"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="2021"/>
       <source>Save</source>
       <translation>Kaydet</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="462"/>
-      <source>Ctrl+S</source>
-      <translation>Ctrl+S</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="467"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="473"/>
       <source>E&amp;xit</source>
       <translation>Ç&amp;ıkış</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="480"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="486"/>
       <source>&amp;Undo</source>
       <translation>&amp;Geri Al</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="483"/>
-      <source>Ctrl+Z</source>
-      <translation>Ctrl+Z</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="493"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="499"/>
       <source>&amp;Redo</source>
       <translation>&amp;Yinele</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="496"/>
-      <source>Ctrl+Y</source>
-      <translation>Ctrl+Y</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="506"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="512"/>
       <source>Cu&amp;t</source>
       <translation>Ke&amp;s</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="509"/>
-      <source>Ctrl+X</source>
-      <translation>Ctrl+X</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="519"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="525"/>
       <source>&amp;Copy</source>
       <translation>&amp;Kopyala</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="522"/>
-      <source>Ctrl+C</source>
-      <translation>Ctrl+C</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="532"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="538"/>
       <source>&amp;Paste</source>
       <translation>&amp;Yapıştır</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="535"/>
-      <source>Ctrl+V</source>
-      <translation>Ctrl+V</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="540"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="546"/>
       <source>&amp;Delete</source>
       <translation>&amp;Sil</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="543"/>
-      <source>Del</source>
-      <translation>Sil</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="548"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="554"/>
       <source>Copy Full Path</source>
       <translation>Tam Yolu Kopyala</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="553"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="559"/>
       <source>Copy File Name</source>
       <translation>Dosya Adını Kopyala</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="558"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="564"/>
       <source>Copy File Directory</source>
       <translation>Dosya Dizinini Kopyala</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="567"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="573"/>
       <source>&amp;Close</source>
       <translation>&amp;Kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="570"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="576"/>
       <source>Close the current file</source>
       <translation>Mevcut dosyayı kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="573"/>
-      <source>Ctrl+W</source>
-      <translation>Ctrl+W</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="578"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="584"/>
       <source>Save &amp;As...</source>
       <translation>&amp;Farklı olarak kaydet...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="581"/>
-      <source>Ctrl+Alt+S</source>
-      <translation>Ctrl+Alt+S</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="586"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="592"/>
       <source>Save a Copy As...</source>
       <translation>Bir Kopyayı Farklı Kaydet...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="595"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="601"/>
       <source>Sav&amp;e All</source>
       <translation>Hep&amp;sini Kaydet</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="598"/>
-      <source>Ctrl+Shift+S</source>
-      <translation>Ctrl+Shift+S</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="603"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="609"/>
       <source>Select A&amp;ll</source>
       <translation>H&amp;epsini Seç</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="606"/>
-      <source>Ctrl+A</source>
-      <translation>Ctrl+A</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="615"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="621"/>
       <source>Increase Indent</source>
       <translation>Girintiyi Artır</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="624"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="630"/>
       <source>Decrease Indent</source>
       <translation>Girintiyi Azalt</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="629"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="635"/>
       <source>Rename...</source>
       <translation>Yeniden Adlandır...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="638"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="644"/>
       <source>Re&amp;load</source>
       <translation>Ye&amp;niden Yükle</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="646"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="652"/>
       <source>Windows (CR LF)</source>
       <translation>Windows (CR LF)</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="654"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="660"/>
       <source>Unix (LF)</source>
       <translation>Unix (LF)</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="662"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="668"/>
       <source>Macintosh (CR)</source>
       <translation>Macintosh (CR)</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="667"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="673"/>
       <source>UPPER CASE</source>
       <translation>BÜYÜK HARF</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="670"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="676"/>
       <source>Convert text to upper case</source>
       <translation>Metni büyük harfe dönüştür</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="675"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="681"/>
       <source>lower case</source>
       <translation>küçük harf</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="678"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="684"/>
       <source>Convert text to lower case</source>
       <translation>Metni küçük harfe dönüştür</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="683"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="689"/>
       <source>Duplicate Current Line</source>
       <translation>Mevcut Satırı Çoğalt</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="686"/>
-      <source>Alt+Down</source>
-      <translation>Alt+Down</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="691"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="697"/>
       <source>Split Lines</source>
       <translation>Satırları Böl</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="696"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="702"/>
       <source>Join Lines</source>
       <translation>Satırları Birleştir</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="699"/>
-      <source>Ctrl+J</source>
-      <translation>Ctrl+J</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="704"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="710"/>
       <source>Move Selected Lines Up</source>
       <translation>Seçili Satırları Yukarı Taşı</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="707"/>
-      <source>Ctrl+Shift+Up</source>
-      <translation>Ctrl+Shift+Up</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="712"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="718"/>
       <source>Move Selected Lines Down</source>
       <translation>Seçili Satırları Aşağı Taşı</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="715"/>
-      <source>Ctrl+Shift+Down</source>
-      <translation>Ctrl+Shift+Down</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="724"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="730"/>
       <source>Clos&amp;e All</source>
       <translation>Heps&amp;ini Kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="727"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="733"/>
       <source>Close All files</source>
       <translation>Tüm dosyaları kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="730"/>
-      <source>Ctrl+Shift+W</source>
-      <translation>Ctrl+Shift+W</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="735"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="741"/>
       <source>Close All Except Active Document</source>
       <translation>Aktif Belge Hariç Tümünü Kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="740"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="746"/>
       <source>Close All to the Left</source>
       <translation>Soldakileri Hepsini Kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="745"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="751"/>
       <source>Close All to the Right</source>
       <translation>Sağdakileri Hepsini Kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="755"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="761"/>
       <source>Zoom &amp;In</source>
       <translation>&amp;Yakınlaştır</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="758"/>
-      <source>Ctrl++</source>
-      <translation>Ctrl++</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="768"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="774"/>
       <source>Zoom &amp;Out</source>
       <translation>&amp;Uzaklaştıor</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="771"/>
-      <source>Ctrl+-</source>
-      <translation>Ctrl+-</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="776"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="782"/>
       <source>Reset Zoom</source>
       <translation>Yakınlaştırmayı Sıfırla</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="779"/>
-      <source>Ctrl+0</source>
-      <translation>Ctrl+0</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="784"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="790"/>
       <source>About Qt</source>
       <translation>Qt Hakkında</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="796"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="802"/>
       <source>About Notepad Next</source>
       <translation>Notepad Next Hakkında</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="807"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="813"/>
       <source>Show Whitespace</source>
       <translation>Boşlukları Göster</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="815"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="821"/>
       <source>Show End of Line</source>
       <translation>Satır sonunu Göster</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="828"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="834"/>
       <source>Show All Characters</source>
       <translation>Tüm Karakterleri Göster</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="841"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="847"/>
       <source>Show Indent Guide</source>
       <translation>Girinti Kılavuzunu Göster</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="849"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="855"/>
       <source>Show Wrap Symbol</source>
       <translation>Satır Kaydırma Sembolünü Göster</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="862"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="868"/>
       <source>Word Wrap</source>
       <translation>Word Wrap</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="867"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="873"/>
       <source>Restore Recently Closed File</source>
       <translation>Son Kapatılan Dosyayı Geri Yükle</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="870"/>
-      <source>Ctrl+Shift+T</source>
-      <translation>Ctrl+Shift+T</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="875"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="881"/>
       <source>Open All Recent Files</source>
       <translation>Tüm Son Dosyaları Aç</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="880"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="886"/>
       <source>Clear Recent Files List</source>
       <translation>Son Dosyalar Listesini Temizle</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="890"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="896"/>
       <source>&amp;Find...</source>
       <translation>&amp;Bul...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="893"/>
-      <source>Ctrl+F</source>
-      <translation>Ctrl+F</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="898"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="904"/>
       <source>Find in Files...</source>
       <translation>Dosyalarda Ara...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="903"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="909"/>
       <source>Find &amp;Next</source>
       <translation>&amp;Sıradakini Bul</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="906"/>
-      <source>F3</source>
-      <translation>F3</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="911"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="917"/>
       <source>Find &amp;Previous</source>
       <translation>&amp;Öncekini Bul</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="914"/>
-      <source>Shift+F3</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="924"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="930"/>
       <source>&amp;Replace...</source>
       <translation>&amp;Değiştir...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="927"/>
-      <source>Ctrl+H</source>
-      <translation>Ctrl+H</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="935"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="941"/>
       <source>Full Screen</source>
       <translation>Tam Ekran</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="938"/>
-      <source>F11</source>
-      <translation>F11</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="951"/>
-      <location filename="../src/dialogs/MainWindow.cpp" line="753"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="957"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="826"/>
       <source>Start Recording</source>
       <translation>Kaydetmeye Başla</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="963"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="969"/>
       <source>Playback</source>
       <translation>Oynatma</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="966"/>
-      <source>Ctrl+Shift+P</source>
-      <translation>Ctrl+Shift+P</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="978"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="984"/>
       <source>Save Current Recorded Macro...</source>
       <translation>Mevcut Kaydedilen Makroyu Kaydet...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="990"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="996"/>
       <source>Run a Macro Multiple Times...</source>
       <translation>Bir Makroyu Birden Fazla Kez Çalıştır...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="999"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1005"/>
       <source>Preferences...</source>
       <translation>Tercihler...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1007"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1013"/>
       <source>Quick Find</source>
       <translation>Hızlıca Bul</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1010"/>
-      <source>Ctrl+Alt+I</source>
-      <translation>Ctrl+Alt+I</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1015"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1021"/>
       <source>Select Next Instance</source>
       <translation>Sonraki Örneği Seç</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1018"/>
-      <source>Ctrl+D</source>
-      <translation>Ctrl+D</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1027"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1033"/>
       <source>Move to Trash...</source>
       <translation>Çöp Kutusuna Taşı...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1030"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1036"/>
       <source>Move to Trash</source>
       <translation>Çöp Kutusuna Taşı</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1035"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1041"/>
       <source>Check for Updates...</source>
       <translation>Güncellemeleri Kontrol Et...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1040"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1046"/>
       <source>&amp;Go to Line...</source>
       <translation>&amp;Satıra Git...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1043"/>
-      <source>Ctrl+G</source>
-      <translation>Ctrl+G</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1052"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1058"/>
       <source>Print...</source>
       <translation>Yazdır...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1055"/>
-      <source>Ctrl+P</source>
-      <translation>Ctrl+P</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1060"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1066"/>
       <source>Open Folder as Workspace...</source>
       <translation>Klasörü Çalışma Alanı Olarak Aç...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1065"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1071"/>
       <source>Toggle Single Line Comment</source>
       <translation>Tek Satırlı Yorumu Aç/Kapa</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1068"/>
-      <source>Ctrl+/</source>
-      <translation>Ctrl+/</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1073"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1079"/>
       <source>Single Line Comment</source>
       <translation>Tek Satır Yorumu</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1076"/>
-      <source>Ctrl+K</source>
-      <translation>Ctrl+K</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1081"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1087"/>
       <source>Single Line Uncomment</source>
       <translation>Tek Satır Yorumunu Kaldır</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1084"/>
-      <source>Ctrl+Shift+K</source>
-      <translation>Ctrl+Shift+K</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1096"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1102"/>
       <source>Edit Macros...</source>
       <translation>Makroları Düzenle...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1104"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1110"/>
       <source>This is not currently implemented</source>
       <translation>Bu şu anda uygulanmamaktadır</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1109"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1115"/>
       <source>Column Mode...</source>
       <translation>Sütun Modu...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1114"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1120"/>
       <source>Export as HTML...</source>
       <translation>HTML Olarak Dışa Aktar...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1119"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1125"/>
       <source>Export as RTF...</source>
       <translation>RTF Olarak Dışa Aktar...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1124"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1130"/>
       <source>Copy as HTML</source>
       <translation>HTML olarak kopyala</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1129"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1135"/>
       <source>Copy as RTF</source>
       <translation>RTF olarak kopyala</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1134"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1140"/>
       <source>Base 64 Encode</source>
       <translation>Base 64 Kodla</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1139"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1145"/>
       <source>URL Encode</source>
       <translation>URL Kodla</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1144"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1150"/>
       <source>Base 64 Decode</source>
       <translation>Base 64 Çözümle</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1149"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1155"/>
       <source>URL Decode</source>
       <translation>URL Çözümle</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1154"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1160"/>
       <source>Copy URL</source>
       <translation>Copy URL</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1159"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1165"/>
       <source>Remove Empty Lines</source>
       <translation>Boş Satırları Sil</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1168"/>
-      <location filename="../src/dialogs/MainWindow.ui" line="1171"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1174"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1177"/>
       <source>Show in Explorer</source>
       <translation>Dosya Gezgininde Göster</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1180"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1186"/>
       <source>Open %1 Here</source>
       <translation>Open %1 Here</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1185"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1191"/>
       <source>Toggle Bookmark</source>
       <translation>Yer İmlerini Aç/Kapat</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1188"/>
-      <source>Ctrl+F2</source>
-      <translation>Ctrl+F2</translation>
+      <location filename="../src/dialogs/MainWindow.ui" line="1199"/>
+      <source>Search and Bookmark Lines...</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1193"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1207"/>
       <source>Next Bookmark</source>
       <translation>Sonraki Yer İmi</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1196"/>
-      <source>F2</source>
-      <translation>F2</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1201"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1215"/>
       <source>Previous Bookmark</source>
       <translation>Önceki Yer İmi</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1204"/>
-      <source>Shift+F2</source>
-      <translation>Shift+F2</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1209"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1223"/>
       <source>Clear Bookmarks</source>
       <translation>Yer İmlerini Temizle</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1214"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1228"/>
       <source>Invert Bookmarks</source>
       <translation>Yer İmlerini Tersine Çevir</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1219"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1233"/>
       <source>Next Tab</source>
       <translation>Next Tab</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1222"/>
-      <source>Ctrl+Tab</source>
-      <translation>Ctrl+Tab</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1230"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1244"/>
       <source>Previous Tab</source>
       <translation>Previous Tab</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1233"/>
-      <source>Ctrl+Shift+Tab</source>
-      <translation>Ctrl+Shift+Tab</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1241"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1255"/>
       <source>Fold Level 1</source>
       <translation>Fold Level 1</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1244"/>
-      <source>Alt+1</source>
-      <translation>Alt+1</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1249"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1263"/>
       <source>Fold Level 2</source>
       <translation>Fold Level 2</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1252"/>
-      <source>Alt+2</source>
-      <translation>Alt+2</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1257"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1271"/>
       <source>Fold Level 3</source>
       <translation>Fold Level 3</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1260"/>
-      <source>Alt+3</source>
-      <translation>Alt+3</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1265"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1279"/>
       <source>Fold Level 4</source>
       <translation>Fold Level 4</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1268"/>
-      <source>Alt+4</source>
-      <translation>Alt+4</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1273"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1287"/>
       <source>Unfold Level 1</source>
       <translation>Unfold Level 1</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1276"/>
-      <source>Alt+Shift+1</source>
-      <translation>Alt+Shift+1</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1281"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1295"/>
       <source>Unfold Level 2</source>
       <translation>Unfold Level 2</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1284"/>
-      <source>Alt+Shift+2</source>
-      <translation>Alt+Shift+2</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1289"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1303"/>
       <source>Unfold Level 3</source>
       <translation>Unfold Level 3</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1292"/>
-      <source>Alt+Shift+3</source>
-      <translation>Alt+Shift+3</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1297"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1311"/>
       <source>Unfold Level 4</source>
       <translation>Unfold Level 4</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1300"/>
-      <source>Alt+Shift+4</source>
-      <translation>Alt+Shift+4</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1305"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1319"/>
       <source>Fold All</source>
       <translation>Fold All</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1308"/>
-      <source>Alt+0</source>
-      <translation>Alt+0</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1313"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1327"/>
       <source>Unfold All</source>
       <translation>Unfold All</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1316"/>
-      <source>Alt+Shift+0</source>
-      <translation>Alt+Shift+0</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1321"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1335"/>
       <source>Fold Level 5</source>
       <translation>Fold Level 5</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1324"/>
-      <source>Alt+5</source>
-      <translation>Alt+5</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1329"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1343"/>
       <source>Fold Level 6</source>
       <translation>Fold Level 6</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1332"/>
-      <source>Alt+6</source>
-      <translation>Alt+6</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1337"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1351"/>
       <source>Fold Level 7</source>
       <translation>Fold Level 7</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1340"/>
-      <source>Alt+7</source>
-      <translation>Alt+7</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1345"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1359"/>
       <source>Fold Level 8</source>
       <translation>Fold Level 8</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1348"/>
-      <source>Alt+8</source>
-      <translation>Alt+8</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1353"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1367"/>
       <source>Fold Level 9</source>
       <translation>Fold Level 9</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1356"/>
-      <source>Alt+9</source>
-      <translation>Alt+9</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1361"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1375"/>
       <source>Unfold Level 5</source>
       <translation>Unfold Level 5</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1364"/>
-      <source>Alt+Shift+5</source>
-      <translation>Alt+Shift+5</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1369"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1383"/>
       <source>Unfold Level 6</source>
       <translation>Unfold Level 6</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1372"/>
-      <source>Alt+Shift+6</source>
-      <translation>Alt+Shift+6</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1377"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1391"/>
       <source>Unfold Level 7</source>
       <translation>Unfold Level 7</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1380"/>
-      <source>Alt+Shift+7</source>
-      <translation>Alt+Shift+7</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1385"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1399"/>
       <source>Unfold Level 8</source>
       <translation>Unfold Level 8</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1388"/>
-      <source>Alt+Shift+8</source>
-      <translation>Alt+Shift+8</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1393"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1407"/>
       <source>Unfold Level 9</source>
       <translation>Unfold Level 9</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1396"/>
-      <source>Alt+Shift+9</source>
-      <translation>Alt+Shift+9</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1401"/>
-      <location filename="../src/dialogs/MainWindow.ui" line="1404"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1415"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1418"/>
       <source>Toggle Overtype</source>
       <translation>Toggle Overtype</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1407"/>
-      <source>Ins</source>
-      <translation>Ins</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1415"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1429"/>
       <source>Debug Info...</source>
       <translation>Debug Info...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1420"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1434"/>
       <source>Cut Bookmarked Lines</source>
       <translation>Cut Bookmarked Lines</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1425"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1439"/>
       <source>Copy Bookmarked Lines</source>
       <translation>Copy Bookmarked Lines</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1430"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1444"/>
       <source>Delete Bookmarked Lines</source>
       <translation>Delete Bookmarked Lines</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1435"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1449"/>
       <source>Mark Style 1</source>
       <translation>Mark Style 1</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1443"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1457"/>
       <source>Mark Style 2</source>
       <translation>Mark Style 2</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1451"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1465"/>
       <source>Clear Style 1</source>
       <translation>Clear Style 1</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1459"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1473"/>
       <source>Clear Style 2</source>
       <translation>Clear Style 2</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1467"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1481"/>
       <source>Mark Style 3</source>
       <translation>Mark Style 3</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1475"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1489"/>
       <source>Clear Style 3</source>
       <translation>Clear Style 3</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1483"/>
-      <location filename="../src/dialogs/MainWindow.ui" line="1486"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1497"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1500"/>
       <source>Clear All Styles</source>
       <translation>Clear All Styles</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1491"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1505"/>
       <source>Remove Duplicate Lines</source>
       <translation>Remove Duplicate Lines</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1496"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1510"/>
       <source>Remove Consecutive Duplicate Lines</source>
       <translation>Remove Consecutive Duplicate Lines</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1501"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1515"/>
       <source>Sort Lines Ascending</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1506"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1520"/>
       <source>Sort Lines Descending</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1511"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1525"/>
       <source>Sort Lines Ascending (Case-Insensitive)</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1516"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1530"/>
       <source>Sort Lines Descending (Case-Insensitive)</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1521"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1535"/>
       <source>Sort Lines by Length Ascending</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1526"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1540"/>
       <source>Sort Lines by Length Descending</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.ui" line="1531"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1545"/>
       <source>Reverse Line Order</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="411"/>
+      <location filename="../src/dialogs/MainWindow.ui" line="1550"/>
+      <source>Split Horizontal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.ui" line="1553"/>
+      <source>Split editor horizontally (left/right)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.ui" line="1561"/>
+      <source>Split Vertical</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.ui" line="1564"/>
+      <source>Split editor vertically (top/bottom)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.ui" line="1572"/>
+      <source>Select and Find Next</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.ui" line="1580"/>
+      <source>Select and Find Previous</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.cpp" line="479"/>
       <source>Go to line</source>
       <translation>Satıra Git</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="411"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="479"/>
       <source>Line Number (1 - %1)</source>
       <translation>Satır Numarası (1 - %1)</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="744"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="817"/>
       <source>Stop Recording</source>
       <translation>Kaydetmeyi Durdur</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="849"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="922"/>
       <source>Debug Info</source>
       <translation>Debug Info</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1047"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1142"/>
       <source>New %1</source>
       <translation>Yeni %1</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1107"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1204"/>
       <source>Create File</source>
       <translation>Dosya Oluştur</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1107"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1204"/>
       <source>&lt;b&gt;%1&lt;/b&gt; does not exist. Do you want to create it?</source>
       <translation>&lt;b&gt;%1&lt;/b&gt; mevcut değil. Oluşturmak istiyor musunuz?</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1148"/>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1239"/>
-      <source>Save file &lt;b&gt;%1&lt;/b&gt;?</source>
-      <translation>Dosyayı kaydetmek istiyor musunuz: &lt;b&gt;%1&lt;/b&gt;?</translation>
-    </message>
-    <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1149"/>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1240"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="2012"/>
       <source>Save File</source>
       <translation>Dosyayı Kaydet</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1190"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1283"/>
       <source>Open Folder as Workspace</source>
       <translation>Klasörü Çalışma Alanı Olarak Aç</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1213"/>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1885"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1306"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1955"/>
       <source>Reload File</source>
       <translation>Dosyayı Yeniden Yükle</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1213"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1306"/>
       <source>Are you sure you want to reload &lt;b&gt;%1&lt;/b&gt;? Any unsaved changes will be lost.</source>
       <translation>&lt;b&gt;%1&lt;/b&gt;&apos;i yeniden yüklemek istediğinizden emin misiniz? Kaydedilmemiş değişiklikler kaybolacak.</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1404"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1478"/>
       <source>Save a Copy As</source>
       <translation>Bir Kopyayı Farklı Kaydet</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1480"/>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1497"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1563"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1580"/>
       <source>Rename</source>
       <translation>Yeniden Adlandır</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1497"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1580"/>
       <source>Name:</source>
       <translation>İsim:</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1517"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1600"/>
       <source>Delete File</source>
       <translation>Dosyayı Sil</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1517"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1600"/>
       <source>Are you sure you want to move &lt;b&gt;%1&lt;/b&gt; to the trash?</source>
       <translation>&lt;b&gt;%1&lt;/b&gt;&apos;i çöp kutusuna taşımak istediğinizden emin misiniz?</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1527"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1610"/>
       <source>Error Deleting File</source>
       <translation>Dosya Silme Hatası</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1527"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1610"/>
       <source>Something went wrong deleting &lt;b&gt;%1&lt;/b&gt;?</source>
       <translation>&lt;b&gt;%1&lt;/b&gt; silinirken bir hata oluştu?</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1624"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1694"/>
       <source>Administrator</source>
       <translation>Administrator</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1885"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1955"/>
       <source>&lt;b&gt;%1&lt;/b&gt; has been modified by another program. Do you want to reload it?</source>
       <translation>&lt;b&gt;%1&lt;/b&gt; has been modified by another program. Do you want to reload it?</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1911"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1981"/>
       <source>Read error</source>
       <translation>Read error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1912"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1982"/>
       <source>Write error</source>
       <translation>Write error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1913"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1983"/>
       <source>Fatal error</source>
       <translation>Fatal error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1914"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1984"/>
       <source>Resource error</source>
       <translation>Resource error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1915"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1985"/>
       <source>Open error</source>
       <translation>Open error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1916"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1986"/>
       <source>Abort error</source>
       <translation>Abort error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1917"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1987"/>
       <source>Timeout error</source>
       <translation>Timeout error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1918"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1988"/>
       <source>Unspecified error</source>
       <translation>Unspecified error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1919"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1989"/>
       <source>Remove error</source>
       <translation>Remove error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1920"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1990"/>
       <source>Rename error</source>
       <translation>Rename error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1921"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1991"/>
       <source>Position error</source>
       <translation>Position error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1922"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1992"/>
       <source>Resize error</source>
       <translation>Resize error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1923"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1993"/>
       <source>Permissions error</source>
       <translation>Permissions error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1924"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1994"/>
       <source>Copy error</source>
       <translation>Copy error</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1925"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1995"/>
       <source>Unknown error (%1)</source>
       <translation>Unknown error (%1)</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1928"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1998"/>
       <source>Error Saving File</source>
       <translation>Dosyayı Kaydetme Hatası</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1929"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="1999"/>
       <source>An error occurred when saving &lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;Error: %2</source>
       <translation>Bir hata oluştu. &lt;b&gt;%1&lt;/b&gt; kaydedilirken hata oluştu. &lt;br&gt;&lt;br&gt;Hata: %2</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="1935"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="2005"/>
       <source>Zoom: %1%</source>
       <translation>Zoom: %1%</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/MainWindow.cpp" line="2102"/>
+      <location filename="../src/dialogs/MainWindow.cpp" line="2017"/>
+      <source>Save changes to &lt;b&gt;%1&lt;/b&gt;?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+      <location filename="../src/dialogs/MainWindow.cpp" line="2018"/>
+      <source>There are %n files with unsaved changes. Save them?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.cpp" line="2021"/>
+      <source>Save All</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.cpp" line="2022"/>
+      <source>Discard All</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.cpp" line="2022"/>
+      <source>Discard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/MainWindow.cpp" line="2210"/>
       <source>No updates are available at this time.</source>
       <translation>Şu anda kullanılabilir güncellemeler bulunmuyor.</translation>
     </message>
@@ -2173,32 +1997,37 @@
     </message>
     <message>
       <location filename="../src/dialogs/PreferencesDialog.ui" line="214"/>
+      <source>Auto Completion</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/dialogs/PreferencesDialog.ui" line="221"/>
       <location filename="../src/dialogs/PreferencesDialog.cpp" line="122"/>
       <source>Default Directory</source>
       <translation>Default Directory</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/PreferencesDialog.ui" line="220"/>
+      <location filename="../src/dialogs/PreferencesDialog.ui" line="227"/>
       <source>Follow Current Document</source>
       <translation>Follow Current Document</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/PreferencesDialog.ui" line="227"/>
+      <location filename="../src/dialogs/PreferencesDialog.ui" line="234"/>
       <source>Last Used Directory</source>
       <translation>Last Used Directory</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/PreferencesDialog.ui" line="246"/>
+      <location filename="../src/dialogs/PreferencesDialog.ui" line="253"/>
       <source>...</source>
       <translation>...</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/PreferencesDialog.ui" line="277"/>
+      <location filename="../src/dialogs/PreferencesDialog.ui" line="284"/>
       <source>TextLabel</source>
       <translation>Metin</translation>
     </message>
     <message>
-      <location filename="../src/dialogs/PreferencesDialog.ui" line="289"/>
+      <location filename="../src/dialogs/PreferencesDialog.ui" line="296"/>
       <source>An application restart is required to apply certain settings.</source>
       <translation>An application restart is required to apply certain settings.</translation>
     </message>
@@ -2281,11 +2110,6 @@
       <translation>. *</translation>
     </message>
     <message>
-      <location filename="../src/widgets/QuickFindWidget.ui" line="76"/>
-      <source>Alt+E</source>
-      <translation>Alt+E</translation>
-    </message>
-    <message>
       <location filename="../src/widgets/QuickFindWidget.cpp" line="238"/>
       <source>%L1/%L2</source>
       <translation>%L1/%L2</translation>
@@ -2300,28 +2124,52 @@
     </message>
     <message>
       <location filename="../src/docks/SearchResultsDock.ui" line="38"/>
-      <source>Copy Results to Clipboard</source>
-      <translation>Copy Results to Clipboard</translation>
+      <location filename="../src/docks/SearchResultsDock.ui" line="41"/>
+      <source>Copy All Results to Clipboard</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <location filename="../src/docks/SearchResultsDock.cpp" line="57"/>
+      <source>Copy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/docks/SearchResultsDock.cpp" line="59"/>
       <source>Collapse All</source>
       <translation>Tümünü Daralt</translation>
     </message>
     <message>
-      <location filename="../src/docks/SearchResultsDock.cpp" line="58"/>
+      <location filename="../src/docks/SearchResultsDock.cpp" line="60"/>
       <source>Expand All</source>
       <translation>Tümünü Genişlet</translation>
     </message>
     <message>
-      <location filename="../src/docks/SearchResultsDock.cpp" line="60"/>
+      <location filename="../src/docks/SearchResultsDock.cpp" line="62"/>
       <source>Delete Entry</source>
       <translation>Girdiyi Sil</translation>
     </message>
     <message>
-      <location filename="../src/docks/SearchResultsDock.cpp" line="62"/>
+      <location filename="../src/docks/SearchResultsDock.cpp" line="64"/>
       <source>Delete All</source>
       <translation>Hepsini Sil</translation>
+    </message>
+  </context>
+  <context>
+    <name>TabsQuickActionsBar</name>
+    <message>
+      <location filename="../src/widgets/TabsQuickActionsBar.cpp" line="40"/>
+      <source>Create a new file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/widgets/TabsQuickActionsBar.cpp" line="43"/>
+      <source>Show opened files list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <location filename="../src/widgets/TabsQuickActionsBar.cpp" line="49"/>
+      <source>Close the current file</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

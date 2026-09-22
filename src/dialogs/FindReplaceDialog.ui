@@ -306,6 +306,36 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="buttonMarkAll">
+         <property name="text">
+          <string>Mark All</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonClearAllMarks">
+         <property name="text">
+          <string>Clear all marks</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonCopyMarkedText">
+         <property name="text">
+          <string>Copy Marked Text</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="buttonClose">
          <property name="text">
           <string>Close</string>
@@ -388,6 +418,9 @@
            <property name="insertPolicy">
             <enum>QComboBox::NoInsert</enum>
            </property>
+           <property name="sizeAdjustPolicy">
+            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -417,6 +450,9 @@
            <property name="insertPolicy">
             <enum>QComboBox::NoInsert</enum>
            </property>
+           <property name="sizeAdjustPolicy">
+            <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+           </property>
           </widget>
          </item>
         </layout>
@@ -439,6 +475,20 @@
          <property name="spacing">
           <number>0</number>
          </property>
+         <item>
+          <widget class="QCheckBox" name="checkBoxBookmarkLine">
+           <property name="text">
+            <string>&amp;Bookmark line</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxPurgeForEachSearch">
+           <property name="text">
+            <string>&amp;Purge for each search</string>
+           </property>
+          </widget>
+         </item>
          <item>
           <widget class="QCheckBox" name="checkBoxBackwardsDirection">
            <property name="text">
@@ -489,6 +539,9 @@
   <tabstop>buttonReplaceAllInDocuments</tabstop>
   <tabstop>buttonFindAllInDocuments</tabstop>
   <tabstop>buttonFindAllInCurrent</tabstop>
+  <tabstop>buttonMarkAll</tabstop>
+  <tabstop>buttonClearAllMarks</tabstop>
+  <tabstop>buttonCopyMarkedText</tabstop>
   <tabstop>buttonClose</tabstop>
   <tabstop>transparency</tabstop>
   <tabstop>radioOnLosingFocus</tabstop>

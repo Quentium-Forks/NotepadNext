@@ -62,11 +62,12 @@ DockedEditor::DockedEditor(QWidget *parent) : QObject(parent)
     ads::CDockManager::setConfigFlag(ads::CDockManager::FocusHighlighting, true);
     ads::CDockManager::setConfigFlag(ads::CDockManager::EqualSplitOnInsertion, true);
     ads::CDockManager::setConfigFlag(ads::CDockManager::MiddleMouseButtonClosesTab, true);
+    ads::CDockManager::setConfigFlag(ads::CDockManager::DockAreaHasTabsMenuButton, false);
 
     dockManager = new ads::CDockManager(parent);
     dockManager->setStyleSheet("");
 
-    connect(dockManager, &ads::CDockManager::focusedDockWidgetChanged, this, [=](ads::CDockWidget* old, ads::CDockWidget* now) {
+    connect(dockManager, &ads::CDockManager::focusedDockWidgetChanged, this, [=, this](ads::CDockWidget* old, ads::CDockWidget* now) {
         Q_UNUSED(old)
 
         ScintillaNext *editor = qobject_cast<ScintillaNext *>(now->widget());
@@ -76,11 +77,11 @@ DockedEditor::DockedEditor(QWidget *parent) : QObject(parent)
         emit editorActivated(editor);
     });
 
-    connect(dockManager, &ads::CDockManager::dockAreaCreated, this, [=](ads::CDockAreaWidget* DockArea) {
+    connect(dockManager, &ads::CDockManager::dockAreaCreated, this, [=, this](ads::CDockAreaWidget* DockArea) {
         DockedEditorTitleBar *titleBar = qobject_cast<DockedEditorTitleBar *>(DockArea->titleBar());
         connect(titleBar, &DockedEditorTitleBar::doubleClicked, this, &DockedEditor::titleBarDoubleClicked);
 
-        connect(DockArea->titleBar()->tabBar(), &ads::CDockAreaTabBar::tabMoved, this, [=](int from, int to) {
+        connect(DockArea->titleBar()->tabBar(), &ads::CDockAreaTabBar::tabMoved, this, [=, this](int from, int to) {
             Q_UNUSED(from);
             Q_UNUSED(to);
 
@@ -174,7 +175,7 @@ void DockedEditor::addEditor(ScintillaNext *editor)
     dockWidget->setFeature(ads::CDockWidget::DockWidgetFeature::DockWidgetFloatable, false);
 
     dockWidget->tabWidget()->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(dockWidget->tabWidget(), &QWidget::customContextMenuRequested, this, [=](const QPoint &pos) {
+    connect(dockWidget->tabWidget(), &QWidget::customContextMenuRequested, this, [=, this](const QPoint &pos) {
         Q_UNUSED(pos)
 
         emit contextMenuRequestedForEditor(editor);
@@ -194,7 +195,7 @@ void DockedEditor::addEditor(ScintillaNext *editor)
     }
     else {
         dockWidget->tabWidget()->setIcon(QIcon(editor->canSaveToDisk() ? ":/icons/unsaved.png" : ":/icons/saved.png"));
-        connect(editor, &ScintillaNext::savePointChanged, dockWidget, [=](bool dirty) {
+        connect(editor, &ScintillaNext::savePointChanged, dockWidget, [=, this](bool dirty) {
             Q_UNUSED(dirty)
             const bool actuallyDirty = editor->canSaveToDisk();
             const QString iconPath = actuallyDirty ? ":/icons/unsaved.png" : ":/icons/saved.png";
@@ -203,8 +204,8 @@ void DockedEditor::addEditor(ScintillaNext *editor)
     }
 
     connect(editor, &ScintillaNext::closed, dockWidget, &ads::CDockWidget::closeDockWidget);
-    connect(editor, &ScintillaNext::closed, this, [=]() { emit editorClosed(editor); });
-    connect(editor, &ScintillaNext::renamed, this, [=]() { editorRenamed(editor); });
+    connect(editor, &ScintillaNext::closed, this, [=, this]() { emit editorClosed(editor); });
+    connect(editor, &ScintillaNext::renamed, this, [=, this]() { editorRenamed(editor); });
 
     connect(dockWidget, &ads::CDockWidget::closeRequested, this, &DockedEditor::dockWidgetCloseRequested);
 
@@ -226,5 +227,31 @@ void DockedEditor::editorRenamed(ScintillaNext *editor)
     }
     else {
         dockWidget->tabWidget()->setToolTip(editor->getName());
+    }
+}
+
+void DockedEditor::splitToRight(ScintillaNext *editor)
+{
+    Q_ASSERT(editor != Q_NULLPTR);
+
+    ads::CDockWidget *newDockWidget = qobject_cast<ads::CDockWidget *>(editor->parentWidget());
+    if (newDockWidget) {
+        ads::CDockAreaWidget *currentArea = currentDockArea();
+        if (currentArea) {
+            dockManager->addDockWidget(ads::RightDockWidgetArea, newDockWidget, currentArea);
+        }
+    }
+}
+
+void DockedEditor::splitToBottom(ScintillaNext *editor)
+{
+    Q_ASSERT(editor != Q_NULLPTR);
+
+    ads::CDockWidget *newDockWidget = qobject_cast<ads::CDockWidget *>(editor->parentWidget());
+    if (newDockWidget) {
+        ads::CDockAreaWidget *currentArea = currentDockArea();
+        if (currentArea) {
+            dockManager->addDockWidget(ads::BottomDockWidgetArea, newDockWidget, currentArea);
+        }
     }
 }

@@ -101,7 +101,7 @@ LanguageInspectorDock::LanguageInspectorDock(MainWindow *parent) :
     ComboBoxDelegate *fontComboDelegate = new ComboBoxDelegate(fontNames, this);
     ui->tblStyles->setItemDelegateForColumn(4, fontComboDelegate);
 
-    connect(this, &QDockWidget::visibilityChanged, this, [=](bool visible) {
+    connect(this, &QDockWidget::visibilityChanged, this, [=, this](bool visible) {
         if (visible) {
             connectToEditor(parent->currentEditor());
             connect(parent, &MainWindow::editorActivated, this, &LanguageInspectorDock::connectToEditor);
@@ -123,7 +123,7 @@ void LanguageInspectorDock::connectToEditor(ScintillaNext *editor)
     disconnectFromEditor();
 
     editorConnection = connect(editor, &ScintillaNext::updateUi, this, &LanguageInspectorDock::updatePositionInfo);
-    documentConnection = connect(editor, &ScintillaNext::lexerChanged, this, [=]() { updateLexerInfo(editor); });
+    documentConnection = connect(editor, &ScintillaNext::lexerChanged, this, [=, this]() { updateLexerInfo(editor); });
 
     updateLexerInfo(editor);
 }
@@ -141,7 +141,7 @@ void LanguageInspectorDock::disconnectFromEditor()
 
 void LanguageInspectorDock::updatePositionInfo(Scintilla::Update updated)
 {
-    if (FlagSet(updated, Scintilla::Update::Content) || FlagSet(updated, Scintilla::Update::Selection)) {
+    if (FlagSet(updated, Scintilla::Update::Text) || FlagSet(updated, Scintilla::Update::Selection)) {
         ScintillaNext *editor = qobject_cast<ScintillaNext*>(sender());
         ui->lblInfo->setText(tr("Position %1 Style %2").arg(editor->currentPos()).arg(editor->styleAt(editor->currentPos())));
     }
@@ -209,7 +209,7 @@ void LanguageInspectorDock::updatePropertyInfo(ScintillaNext *editor)
     ui->tblProperties->resizeColumnToContents(3);
 
     ui->tblProperties->disconnect();
-    connect(ui->tblProperties, &QTableWidget::itemChanged, this, [=](QTableWidgetItem *item) {
+    connect(ui->tblProperties, &QTableWidget::itemChanged, this, [=, this](QTableWidgetItem *item) {
         const QString property = ui->tblProperties->item(item->row(), 0)->text();
 
         editor->setProperty(property.toLatin1().constData(), item->text().toLatin1().constData());

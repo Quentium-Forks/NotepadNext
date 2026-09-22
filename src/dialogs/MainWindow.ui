@@ -204,6 +204,7 @@
       <string>Bookmarks</string>
      </property>
      <addaction name="actionToggleBookmark"/>
+     <addaction name="actionSearchAndBookmark"/>
      <addaction name="separator"/>
      <addaction name="actionNextBookmark"/>
      <addaction name="actionPreviousBookmark"/>
@@ -236,6 +237,8 @@
     <addaction name="actionFindInFiles"/>
     <addaction name="actionFindNext"/>
     <addaction name="actionFindPrevious"/>
+    <addaction name="actionSelectandFindNext"/>
+    <addaction name="actionSelectandFindPrevious"/>
     <addaction name="actionReplace"/>
     <addaction name="separator"/>
     <addaction name="actionQuickFind"/>
@@ -308,6 +311,9 @@
     <addaction name="actionUnfoldAll"/>
     <addaction name="menuFold_Level"/>
     <addaction name="menuUnfold_Level"/>
+    <addaction name="separator"/>
+    <addaction name="actionSplitHorizontal"/>
+    <addaction name="actionSplitVertical"/>
     <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
@@ -427,7 +433,7 @@
     <string>Create a new file</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+N</string>
+    <string notr="true">Ctrl+N</string>
    </property>
   </action>
   <action name="actionOpen">
@@ -440,7 +446,7 @@
     <string>&amp;Open...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+O</string>
+    <string notr="true">Ctrl+O</string>
    </property>
    <property name="shortcutContext">
     <enum>Qt::WindowShortcut</enum>
@@ -459,7 +465,7 @@
     <string>Save</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+S</string>
+    <string notr="true">Ctrl+S</string>
    </property>
   </action>
   <action name="actionExit">
@@ -480,7 +486,7 @@
     <string>&amp;Undo</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Z</string>
+    <string notr="true">Ctrl+Z</string>
    </property>
   </action>
   <action name="actionRedo">
@@ -493,7 +499,7 @@
     <string>&amp;Redo</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Y</string>
+    <string notr="true">Ctrl+Y</string>
    </property>
   </action>
   <action name="actionCut">
@@ -506,7 +512,7 @@
     <string>Cu&amp;t</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+X</string>
+    <string notr="true">Ctrl+X</string>
    </property>
   </action>
   <action name="actionCopy">
@@ -519,7 +525,7 @@
     <string>&amp;Copy</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+C</string>
+    <string notr="true">Ctrl+C</string>
    </property>
   </action>
   <action name="actionPaste">
@@ -532,7 +538,7 @@
     <string>&amp;Paste</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+V</string>
+    <string notr="true">Ctrl+V</string>
    </property>
   </action>
   <action name="actionDelete">
@@ -540,7 +546,7 @@
     <string>&amp;Delete</string>
    </property>
    <property name="shortcut">
-    <string>Del</string>
+    <string notr="true">Del</string>
    </property>
   </action>
   <action name="actionCopyFullPath">
@@ -570,7 +576,7 @@
     <string>Close the current file</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+W</string>
+    <string notr="true">Ctrl+W</string>
    </property>
   </action>
   <action name="actionSaveAs">
@@ -578,7 +584,7 @@
     <string>Save &amp;As...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Alt+S</string>
+    <string notr="true">Ctrl+Alt+S</string>
    </property>
   </action>
   <action name="actionSaveCopyAs">
@@ -595,7 +601,7 @@
     <string>Sav&amp;e All</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+S</string>
+    <string notr="true">Ctrl+Shift+S</string>
    </property>
   </action>
   <action name="actionSelectAll">
@@ -603,7 +609,7 @@
     <string>Select A&amp;ll</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+A</string>
+    <string notr="true">Ctrl+A</string>
    </property>
   </action>
   <action name="actionIncreaseIndent">
@@ -683,7 +689,7 @@
     <string>Duplicate Current Line</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Down</string>
+    <string notr="true">Alt+Down</string>
    </property>
   </action>
   <action name="actionSplitLines">
@@ -696,7 +702,7 @@
     <string>Join Lines</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+J</string>
+    <string notr="true">Ctrl+J</string>
    </property>
   </action>
   <action name="actionMoveSelectedLinesUp">
@@ -704,7 +710,7 @@
     <string>Move Selected Lines Up</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+Up</string>
+    <string notr="true">Ctrl+Shift+Up</string>
    </property>
   </action>
   <action name="actionMoveSelectedLinesDown">
@@ -712,7 +718,7 @@
     <string>Move Selected Lines Down</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+Down</string>
+    <string notr="true">Ctrl+Shift+Down</string>
    </property>
   </action>
   <action name="actionCloseAll">
@@ -727,7 +733,7 @@
     <string>Close All files</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+W</string>
+    <string notr="true">Ctrl+Shift+W</string>
    </property>
   </action>
   <action name="actionCloseAllExceptActive">
@@ -755,7 +761,7 @@
     <string>Zoom &amp;In</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl++</string>
+    <string notr="true">Ctrl++</string>
    </property>
   </action>
   <action name="actionZoomOut">
@@ -768,7 +774,7 @@
     <string>Zoom &amp;Out</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+-</string>
+    <string notr="true">Ctrl+-</string>
    </property>
   </action>
   <action name="actionZoomReset">
@@ -776,7 +782,7 @@
     <string>Reset Zoom</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+0</string>
+    <string notr="true">Ctrl+0</string>
    </property>
   </action>
   <action name="actionAboutQt">
@@ -867,7 +873,7 @@
     <string>Restore Recently Closed File</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+T</string>
+    <string notr="true">Ctrl+Shift+T</string>
    </property>
   </action>
   <action name="actionOpenAllRecentFiles">
@@ -890,7 +896,7 @@
     <string>&amp;Find...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+F</string>
+    <string notr="true">Ctrl+F</string>
    </property>
   </action>
   <action name="actionFindInFiles">
@@ -903,7 +909,7 @@
     <string>Find &amp;Next</string>
    </property>
    <property name="shortcut">
-    <string>F3</string>
+    <string notr="true">F3</string>
    </property>
   </action>
   <action name="actionFindPrevious">
@@ -911,7 +917,7 @@
     <string>Find &amp;Previous</string>
    </property>
    <property name="shortcut">
-    <string>Shift+F3</string>
+    <string notr="true">Shift+F3</string>
    </property>
   </action>
   <action name="actionReplace">
@@ -924,7 +930,7 @@
     <string>&amp;Replace...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+H</string>
+    <string notr="true">Ctrl+H</string>
    </property>
   </action>
   <action name="actionFullScreen">
@@ -935,7 +941,7 @@
     <string>Full Screen</string>
    </property>
    <property name="shortcut">
-    <string>F11</string>
+    <string notr="true">F11</string>
    </property>
   </action>
   <action name="actionMacroRecording">
@@ -963,7 +969,7 @@
     <string>Playback</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+P</string>
+    <string notr="true">Ctrl+Shift+P</string>
    </property>
   </action>
   <action name="actionSaveCurrentRecordedMacro">
@@ -1007,7 +1013,7 @@
     <string>Quick Find</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Alt+I</string>
+    <string notr="true">Ctrl+Alt+I</string>
    </property>
   </action>
   <action name="actionSelectNext">
@@ -1015,7 +1021,7 @@
     <string>Select Next Instance</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+D</string>
+    <string notr="true">Ctrl+D</string>
    </property>
   </action>
   <action name="actionMoveToTrash">
@@ -1040,7 +1046,7 @@
     <string>&amp;Go to Line...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+G</string>
+    <string notr="true">Ctrl+G</string>
    </property>
   </action>
   <action name="actionPrint">
@@ -1052,7 +1058,7 @@
     <string>Print...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+P</string>
+    <string notr="true">Ctrl+P</string>
    </property>
   </action>
   <action name="actionOpenFolderasWorkspace">
@@ -1065,7 +1071,7 @@
     <string>Toggle Single Line Comment</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+/</string>
+    <string notr="true">Ctrl+/</string>
    </property>
   </action>
   <action name="actionSingleLineComment">
@@ -1073,7 +1079,7 @@
     <string>Single Line Comment</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+K</string>
+    <string notr="true">Ctrl+K</string>
    </property>
   </action>
   <action name="actionSingleLineUncomment">
@@ -1081,7 +1087,7 @@
     <string>Single Line Uncomment</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+K</string>
+    <string notr="true">Ctrl+Shift+K</string>
    </property>
   </action>
   <action name="actionEditMacros">
@@ -1185,7 +1191,15 @@
     <string>Toggle Bookmark</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+F2</string>
+    <string notr="true">Ctrl+F2</string>
+   </property>
+  </action>
+  <action name="actionSearchAndBookmark">
+   <property name="text">
+    <string>Search and Bookmark Lines...</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+M</string>
    </property>
   </action>
   <action name="actionNextBookmark">
@@ -1193,7 +1207,7 @@
     <string>Next Bookmark</string>
    </property>
    <property name="shortcut">
-    <string>F2</string>
+    <string notr="true">F2</string>
    </property>
   </action>
   <action name="actionPreviousBookmark">
@@ -1201,7 +1215,7 @@
     <string>Previous Bookmark</string>
    </property>
    <property name="shortcut">
-    <string>Shift+F2</string>
+    <string notr="true">Shift+F2</string>
    </property>
   </action>
   <action name="actionClearBookmarks">
@@ -1219,7 +1233,7 @@
     <string>Next Tab</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Tab</string>
+    <string notr="true">Ctrl+Tab</string>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
@@ -1230,7 +1244,7 @@
     <string>Previous Tab</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Shift+Tab</string>
+    <string notr="true">Ctrl+Shift+Tab</string>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
@@ -1241,7 +1255,7 @@
     <string>Fold Level 1</string>
    </property>
    <property name="shortcut">
-    <string>Alt+1</string>
+    <string notr="true">Alt+1</string>
    </property>
   </action>
   <action name="actionFoldLevel2">
@@ -1249,7 +1263,7 @@
     <string>Fold Level 2</string>
    </property>
    <property name="shortcut">
-    <string>Alt+2</string>
+    <string notr="true">Alt+2</string>
    </property>
   </action>
   <action name="actionFoldLevel3">
@@ -1257,7 +1271,7 @@
     <string>Fold Level 3</string>
    </property>
    <property name="shortcut">
-    <string>Alt+3</string>
+    <string notr="true">Alt+3</string>
    </property>
   </action>
   <action name="actionFoldLevel4">
@@ -1265,7 +1279,7 @@
     <string>Fold Level 4</string>
    </property>
    <property name="shortcut">
-    <string>Alt+4</string>
+    <string notr="true">Alt+4</string>
    </property>
   </action>
   <action name="actionUnfoldLevel1">
@@ -1273,7 +1287,7 @@
     <string>Unfold Level 1</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+1</string>
+    <string notr="true">Alt+Shift+1</string>
    </property>
   </action>
   <action name="actionUnfoldLevel2">
@@ -1281,7 +1295,7 @@
     <string>Unfold Level 2</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+2</string>
+    <string notr="true">Alt+Shift+2</string>
    </property>
   </action>
   <action name="actionUnfoldLevel3">
@@ -1289,7 +1303,7 @@
     <string>Unfold Level 3</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+3</string>
+    <string notr="true">Alt+Shift+3</string>
    </property>
   </action>
   <action name="actionUnfoldLevel4">
@@ -1297,7 +1311,7 @@
     <string>Unfold Level 4</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+4</string>
+    <string notr="true">Alt+Shift+4</string>
    </property>
   </action>
   <action name="actionFoldAll">
@@ -1305,7 +1319,7 @@
     <string>Fold All</string>
    </property>
    <property name="shortcut">
-    <string>Alt+0</string>
+    <string notr="true">Alt+0</string>
    </property>
   </action>
   <action name="actionUnfoldAll">
@@ -1313,7 +1327,7 @@
     <string>Unfold All</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+0</string>
+    <string notr="true">Alt+Shift+0</string>
    </property>
   </action>
   <action name="actionFoldLevel5">
@@ -1321,7 +1335,7 @@
     <string>Fold Level 5</string>
    </property>
    <property name="shortcut">
-    <string>Alt+5</string>
+    <string notr="true">Alt+5</string>
    </property>
   </action>
   <action name="actionFoldLevel6">
@@ -1329,7 +1343,7 @@
     <string>Fold Level 6</string>
    </property>
    <property name="shortcut">
-    <string>Alt+6</string>
+    <string notr="true">Alt+6</string>
    </property>
   </action>
   <action name="actionFoldLevel7">
@@ -1337,7 +1351,7 @@
     <string>Fold Level 7</string>
    </property>
    <property name="shortcut">
-    <string>Alt+7</string>
+    <string notr="true">Alt+7</string>
    </property>
   </action>
   <action name="actionFoldLevel8">
@@ -1345,7 +1359,7 @@
     <string>Fold Level 8</string>
    </property>
    <property name="shortcut">
-    <string>Alt+8</string>
+    <string notr="true">Alt+8</string>
    </property>
   </action>
   <action name="actionFoldLevel9">
@@ -1353,7 +1367,7 @@
     <string>Fold Level 9</string>
    </property>
    <property name="shortcut">
-    <string>Alt+9</string>
+    <string notr="true">Alt+9</string>
    </property>
   </action>
   <action name="actionUnfoldLevel5">
@@ -1361,7 +1375,7 @@
     <string>Unfold Level 5</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+5</string>
+    <string notr="true">Alt+Shift+5</string>
    </property>
   </action>
   <action name="actionUnfoldLevel6">
@@ -1369,7 +1383,7 @@
     <string>Unfold Level 6</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+6</string>
+    <string notr="true">Alt+Shift+6</string>
    </property>
   </action>
   <action name="actionUnfoldLevel7">
@@ -1377,7 +1391,7 @@
     <string>Unfold Level 7</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+7</string>
+    <string notr="true">Alt+Shift+7</string>
    </property>
   </action>
   <action name="actionUnfoldLevel8">
@@ -1385,7 +1399,7 @@
     <string>Unfold Level 8</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+8</string>
+    <string notr="true">Alt+Shift+8</string>
    </property>
   </action>
   <action name="actionUnfoldLevel9">
@@ -1393,7 +1407,7 @@
     <string>Unfold Level 9</string>
    </property>
    <property name="shortcut">
-    <string>Alt+Shift+9</string>
+    <string notr="true">Alt+Shift+9</string>
    </property>
   </action>
   <action name="actionToggleOverType">
@@ -1404,7 +1418,7 @@
     <string>Toggle Overtype</string>
    </property>
    <property name="shortcut">
-    <string>Ins</string>
+    <string notr="true">Ins</string>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
@@ -1529,6 +1543,44 @@
   <action name="actionReverseLineOrder">
    <property name="text">
     <string>Reverse Line Order</string>
+   </property>
+  </action>
+  <action name="actionSplitHorizontal">
+   <property name="text">
+    <string>Split Horizontal</string>
+   </property>
+   <property name="toolTip">
+    <string>Split editor horizontally (left/right)</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Alt+Right</string>
+   </property>
+  </action>
+  <action name="actionSplitVertical">
+   <property name="text">
+    <string>Split Vertical</string>
+   </property>
+   <property name="toolTip">
+    <string>Split editor vertically (top/bottom)</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Alt+Down</string>
+   </property>
+  </action>
+  <action name="actionSelectandFindNext">
+   <property name="text">
+    <string>Select and Find Next</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+F3</string>
+   </property>
+  </action>
+  <action name="actionSelectandFindPrevious">
+   <property name="text">
+    <string>Select and Find Previous</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+Shift+F3</string>
    </property>
   </action>
  </widget>
