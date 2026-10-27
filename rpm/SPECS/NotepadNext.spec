@@ -3,7 +3,7 @@ Version:        0.15.1
 Release:        1%{?dist}
 Summary:        A cross-platform, reimplementation of Notepad++
 
-License:        GPL-3.0
+License:        GPL-3.0-or-later
 URL:            https://github.com/Quentium-Forks/NotepadNext
 Source0:        %{name}-%{version}.tar.gz
 
